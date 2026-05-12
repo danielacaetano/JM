@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Verbs Learning - Unit 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .verb-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 5px solid #4299e1;
+        }
+
+        .verb-title {
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .verb-icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .examples {
+            margin-top: 20px;
+        }
+
+        .example-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            border-color: #4299e1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+        }
+
+        .pronoun {
+            font-weight: bold;
+            color: #4299e1;
+            margin-right: 8px;
+        }
+
+        .verb-form {
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .quiz-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #edf2f7;
+            border-radius: 10px;
+        }
+
+        .quiz-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 12px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .option:hover {
+            background: #edf2f7;
+            border-color: #4299e1;
+        }
+
+        .option.correct {
+            background: #c6f6d5;
+            border-color: #38a169;
+            color: #22543d;
+        }
+
+        .option.incorrect {
+            background: #fed7d7;
+            border-color: #e53e3e;
+            color: #742a2a;
+        }
+
+        .score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #4a5568;
+        }
+
+        .practice-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #fef5e7;
+            border-radius: 10px;
+        }
+
+        .practice-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .practice-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .practice-btn {
+            background: #4299e1;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .practice-btn:hover {
+            background: #3182ce;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #38a169;
+        }
+
+        .feedback.incorrect {
+            background: #fed7d7;
+            color: #742a2a;
+            border: 1px solid #e53e3e;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 English Verbs Learning</h1>
+        <p class="subtitle">Unit 6: Simple Present Verbs - Game Changer Starter</p>
+
+        <div class="verb-section">
+            <h2 class="verb-title">
+                <span class="verb-icon">❤️</span>
+                Love
+            </h2>
+            <p>I love, You love, He/She/It loves, We love, You love, They love</p>
+            <div class="examples">
+                <div class="example-item">
+                    <span class="pronoun">I</span>
+                    <span class="verb-form">love</span>
+                    <span>chocolate.</span>
+                </div>
+                <div class="example-item">
+                    <span class="pronoun">She</span>
+                    <span class="verb-form">loves</span>
+                    <span>reading books.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <h2 class="verb-title">
+                <span class="verb-icon">💔</span>
+                Hate
+            </h2>
+            <p>I hate, You hate, He/She/It hates, We hate, You hate, They hate</p>
+            <div class="examples">
+                <div class="example-item">
+                    <span class="pronoun">I</span>
+                    <span class="verb-form">hate</span>
+                    <span>spiders.</span>
+                </div>
+                <div class="example-item">
+                    <span class="pronoun">They</span>
+                    <span class="verb-form">hate</span>
+                    <span>waking up early.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <h2 class="verb-title">
+                <span class="verb-icon">👍</span>
+                Like
+            </h2>
+            <p>I like, You like, He/She/It likes, We like, You like, They like</p>
+            <div class="examples">
+                <div class="example-item">
+                    <span class="pronoun">We</span>
+                    <span class="verb-form">like</span>
+                    <span>playing football.</span>
+                </div>
+                <div class="example-item">
+                    <span class="pronoun">He</span>
+                    <span class="verb-form">likes</span>
+                    <span>ice cream.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <h2 class="verb-title">
+                <span class="verb-icon">👎</span>
+                Don't Like
+            </h2>
+            <p>I don't like, You don't like, He/She/It doesn't like, We don't like, You don't like, They don't like</p>
+            <div class="examples">
+                <div class="example-item">
+                    <span class="pronoun">I</span>
+                    <span class="verb-form">don't like</span>
+                    <span>broccoli.</span>
+                </div>
+                <div class="example-item">
+                    <span class="pronoun">She</span>
+                    <span class="verb-form">doesn't like</span>
+                    <span>loud music.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <h2 class="quiz-title">🧠 Quiz Time!</h2>
+            <div id="quiz-container">
+                <div class="quiz-question">
+                    <p class="question-text">1. I _____ chocolate.</p>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">love</div>
+                        <div class="option" onclick="checkAnswer(this, true)">loves</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p class="question-text">2. She _____ spiders.</p>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">hate</div>
+                        <div class="option" onclick="checkAnswer(this, true)">hates</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p class="question-text">3. We _____ playing football.</p>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, true)">like</div>
+                        <div class="option" onclick="checkAnswer(this, false)">likes</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p class="question-text">4. He _____ broccoli.</p>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">don't like</div>
+                        <div class="option" onclick="checkAnswer(this, true)">doesn't like</div>
+                    </div>
+                </div>
+            </div>
+            <div class="score" id="score">Score: 0/4</div>
+        </div>
+
+        <div class="practice-section">
+            <h2 class="practice-title">✍️ Practice Section</h2>
+            <p>Complete the sentences with the correct verb form:</p>
+            <div class="practice-input" id="practice-input" placeholder="Type your answer here..."></div>
+            <button class="practice-btn" onclick="checkPractice()">Check Answer</button>
+            <div class="feedback" id="practice-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = 0;
+
+        function checkAnswer(element, isCorrect) {
+            if (element.classList.contains('correct') || element.classList.contains('incorrect')) {
+                return; // Already answered
+            }
+
+            answeredQuestions++;
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                score++;
+            } else {
+                element.classList.add('incorrect');
+                // Show correct answer
+                const question = element.closest('.quiz-question');
+                const options = question.querySelectorAll('.option');
+                options.forEach(option => {
+                    if (option !== element && !option.classList.contains('incorrect')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+
+            // Disable all options in this question
+            const question = element.closest('.quiz-question');
+            question.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = `Score: ${score}/4`;
+        }
+
+        function checkPractice() {
+            const input = document.getElementById('practice-input');
+            const feedback = document.getElementById('practice-feedback');
+            const answer = input.value.trim().toLowerCase();
+
+            // Clear previous feedback
+            feedback.className = 'feedback';
+            
+            if (answer.includes('love') || answer.includes('likes') || answer.includes('hate') || answer.includes('hates') || answer.includes('like') || answer.includes('likes') || answer.includes('don\'t like') || answer.includes('doesn\'t like')) {
+                feedback.textContent = 'Great job! You used the correct verb form! 🎉';
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Try again! Remember to use: love, loves, hate, hates, like, likes, don\'t like, doesn\'t like 📝';
+                feedback.classList.add('incorrect');
+            }
+        }
+
+        // Add enter key support for practice section
+        document.getElementById('practice-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPractice();
+            }
+        });
+    </script>
+</body>
+</html>
