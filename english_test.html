@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUNIOR 2: Mid-Term Test 3rd Term (Unit 6)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #333;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .student-info input {
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 5px;
+            font-size: 16px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .page {
+            padding: 30px;
+            page-break-inside: avoid;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .subsection {
+            margin-bottom: 30px;
+        }
+
+        .subsection-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .vocabulary-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            font-size: 24px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .fill-blank {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .fill-blank input {
+            border: 1px solid #333;
+            padding: 5px 10px;
+            width: 80px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .fill-blank span {
+            font-size: 16px;
+        }
+
+        .word-fill {
+            margin-bottom: 10px;
+        }
+
+        .word-fill input {
+            border: 1px solid #333;
+            padding: 5px 10px;
+            width: 120px;
+            font-size: 14px;
+        }
+
+        .grammar-item {
+            margin-bottom: 15px;
+        }
+
+        .grammar-item input {
+            border: 1px solid #333;
+            padding: 5px 10px;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .question-answer {
+            margin-bottom: 15px;
+        }
+
+        .question-answer input {
+            border: 1px solid #333;
+            padding: 5px 10px;
+            width: 100%;
+            max-width: 300px;
+            font-size: 14px;
+        }
+
+        .matching-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+
+        .matching-number {
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .matching-select {
+            padding: 5px 10px;
+            border: 1px solid #333;
+            font-size: 14px;
+        }
+
+        .reading-texts {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .reading-text {
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            height: 200px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+
+        .reading-text h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .reading-questions {
+            margin-top: 20px;
+        }
+
+        .reading-question {
+            margin-bottom: 15px;
+        }
+
+        .reading-question textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .writing-section {
+            margin-top: 30px;
+        }
+
+        .writing-instructions {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #4facfe;
+            margin-bottom: 20px;
+        }
+
+        .writing-textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 1px solid #333;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .scoring {
+            background: #f0f0f0;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .scoring-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background: #4facfe;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background: #3a8bfe;
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4facfe;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .submit-btn {
+                display: none;
+            }
+            
+            .results {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="header">
+            <h1>JUNIOR 2: Mid-Term Test 3rd Term (Unit 6)</h1>
+        </div>
+
+        <div class="student-info">
+            <div>
+                <label>Student name:</label>
+                <input type="text" placeholder="________________________">
+            </div>
+            <div>
+                <label>Date:</label>
+                <input type="text" placeholder="___/___/___">
+            </div>
+        </div>
+
+        <!-- Page 1 -->
+        <div class="page">
+            <div class="section">
+                <div class="section-title">Vocabulary</div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">A. Look and write sentences. Use the key and the words below.</div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>Subjects:</strong> art, computer science, geography, history, math, science<br>
+                        <strong>Key:</strong> 🙂 likes, 😍 loves, 🙁 doesn't like, 😡 hates
+                    </div>
+                    
+                    <div class="vocabulary-grid">
+                        <div class="vocabulary-item">
+                            <span class="icon">😊</span>
+                            <span>Andrea</span>
+                            <div class="fill-blank">
+                                <span>¹</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <div class="fill-blank">
+                                <span>²</span>
+                                <span>📚</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <span>and</span>
+                            <div class="fill-blank">
+                                <span>³</span>
+                                <span>💻</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                        </div>
+                        
+                        <div class="vocabulary-item">
+                            <span class="icon">😍</span>
+                            <span>My friend</span>
+                            <div class="fill-blank">
+                                <span>⁴</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <div class="fill-blank">
+                                <span>⁵</span>
+                                <span>🌍</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <span>and</span>
+                            <div class="fill-blank">
+                                <span>⁶</span>
+                                <span>🎨</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                        </div>
+                        
+                        <div class="vocabulary-item">
+                            <span class="icon">😡</span>
+                            <span>Tom</span>
+                            <div class="fill-blank">
+                                <span>⁷</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <div class="fill-blank">
+                                <span>⁸</span>
+                                <span>🧮</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                        </div>
+                        
+                        <div class="vocabulary-item">
+                            <span class="icon">😔</span>
+                            <span>Maya</span>
+                            <div class="fill-blank">
+                                <span>⁹</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                            <div class="fill-blank">
+                                <span>¹⁰</span>
+                                <span>🧪</span>
+                                <input type="text" placeholder="_____">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">B. Complete the school places words.</div>
+                    <div class="word-fill">
+                        We go to s <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> every day.
+                    </div>
+                    <div class="word-fill">
+                        Our science class is in the s <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> l <input type="text" placeholder="____" style="width: 60px;">.
+                    </div>
+                    <div class="word-fill">
+                        I have lunch in the c <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;">.
+                    </div>
+                    <div class="word-fill">
+                        Students wash their hands in the r <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;"> <input type="text" placeholder="____" style="width: 60px;">.
+                    </div>
+                    <div class="word-fill">
+                        They play sports on the a ___ ___ ___ ___ ___ ___ f ___ ___.
+                    </div>
+                    <div class="word-fill">
+                        The teachers drink coffee in the t ___ ___ ___ ___ ___ ___' l ___ ___ ___ ___.
+                    </div>
+                    <div class="word-fill">
+                        There are lots of books in the l ___ ___ ___ ___ ___.
+                    </div>
+                    <div class="word-fill">
+                        Today's PE class is in the g ___ ___ ___ ___ ___ ___.
+                    </div>
+                    <div class="word-fill">
+                        Mr. Baker is in the principal's o ___ ___ ___.
+                    </div>
+                    <div class="word-fill">
+                        We make robots in the m ___ ___ ___ ___ l ___.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Grammar</div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">A. Complete the sentences. Use the present simple affirmative or negative forms of the verbs in parentheses.</div>
+                    
+                    <div class="grammar-item">
+                        Carmen <input type="text" placeholder="_____"> (love) math, but she <input type="text" placeholder="_____"> (not like) science and she <input type="text" placeholder="_____"> (hate) geography.
+                    </div>
+                    <div class="grammar-item">
+                        My dad <input type="text" placeholder="_____"> (teach) history, but he <input type="text" placeholder="_____"> (not work) at my school.
+                    </div>
+                    <div class="grammar-item">
+                        Rafael <input type="text" placeholder="_____"> (play) video games on Sundays. He <input type="text" placeholder="_____"> (not have) a music lesson.
+                    </div>
+                    <div class="grammar-item">
+                        Beatriz <input type="text" placeholder="_____"> (watch) TV in the evening. She <input type="text" placeholder="_____"> (go) to school in the morning and she <input type="text" placeholder="_____"> (study) in the afternoon.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page">
+            <div class="section">
+                <div class="subsection">
+                    <div class="subsection-title">B. Complete the questions and answers. Use the correct forms of the underlined verbs for the questions.</div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> Where <input type="text" placeholder="_____"> Rosa <input type="text" placeholder="_____"> her homework?<br>
+                        <strong>B:</strong> She does her homework in the library.
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> <input type="text" placeholder="_____"> Ben <input type="text" placeholder="_____"> Spanish?<br>
+                        <strong>B:</strong> Yes, he <input type="text" placeholder="_____">! He likes it a lot!
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> When <input type="text" placeholder="_____"> school <input type="text" placeholder="_____">?<br>
+                        <strong>B:</strong> School starts at 8:45.
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> <input type="text" placeholder="_____"> your teacher <input type="text" placeholder="_____"> with robots?<br>
+                        <strong>B:</strong> Yes, she <input type="text" placeholder="_____">. She works with robots in the maker lab.
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> What time <input type="text" placeholder="_____"> Danny <input type="text" placeholder="_____">?<br>
+                        <strong>B:</strong> He gets up at 7:30.
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> <input type="text" placeholder="_____"> that phone <input type="text" placeholder="_____"> $200?<br>
+                        <strong>B:</strong> No, it <input type="text" placeholder="_____">. It costs $150.
+                    </div>
+                    
+                    <div class="question-answer">
+                        <strong>A:</strong> When <input type="text" placeholder="_____"> your class <input type="text" placeholder="_____">?<br>
+                        <strong>B:</strong> It finishes at 3:00.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Reading</div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">A. Read the texts. Match the sentences 1–5 with the texts. Write A, B or C.</div>
+                    
+                    <div class="reading-texts">
+                        <div class="reading-text">
+                            <h4>A Perfect for Students!</h4>
+                            <p>Hi! We're students in 12th grade. For our project, we sell special pencils. There are lots of great colours, and each pencil is different. Why? Because we write your name on it! And our pencils don't cost a lot – so they're perfect!</p>
+                            <p>Come and order your pencil! Talk to Josh or Jenny in Room 9.</p>
+                        </div>
+                        
+                        <div class="reading-text">
+                            <h4>B English Conversation Classes</h4>
+                            <p>Do you want to practice your English? Meet Kate! She's a student-teacher from the USA. Kate has a class on Thursdays, from 2 p.m. to 3 p.m. in Room 2. Come and chat! It's fun!</p>
+                        </div>
+                        
+                        <div class="reading-text">
+                            <h4>C When do you do your homework?</h4>
+                            <p>Do you want free time in the evenings? Come to homework club! Study with your friends, and get help from a teacher. When? Every day, Monday to Friday. Where? The library. What time? 3 p.m. to 5 p.m. Then go home happy!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="matching-item">
+                        <span class="matching-number">1.</span>
+                        <span>I want to...get a present for a friend.</span>
+                        <select class="matching-select">
+                            <option value="">A, B, or C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                    
+                    <div class="matching-item">
+                        <span class="matching-number">2.</span>
+                        <span>I want to...have free time at home.</span>
+                        <select class="matching-select">
+                            <option value="">A, B, or C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                    
+                    <div class="matching-item">
+                        <span class="matching-number">3.</span>
+                        <span>I want to...buy something interesting.</span>
+                        <select class="matching-select">
+                            <option value="">A, B, or C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                    
+                    <div class="matching-item">
+                        <span class="matching-number">4.</span>
+                        <span>I want to...practice speaking in English.</span>
+                        <select class="matching-select">
+                            <option value="">A, B, or C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                    
+                    <div class="matching-item">
+                        <span class="matching-number">5.</span>
+                        <span>I want to...meet an American person.</span>
+                        <select class="matching-select">
+                            <option value="">A, B, or C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">B. Answer the questions.</div>
+                    
+                    <div class="reading-questions">
+                        <div class="reading-question">
+                            <strong>Where can you order a special pencil?</strong><br>
+                            <textarea placeholder="Write your answer..."></textarea>
+                        </div>
+                        
+                        <div class="reading-question">
+                            <strong>Who is Kate?</strong><br>
+                            <textarea placeholder="Write your answer..."></textarea>
+                        </div>
+                        
+                        <div class="reading-question">
+                            <strong>When is Kate's class?</strong><br>
+                            <textarea placeholder="Write your answer..."></textarea>
+                        </div>
+                        
+                        <div class="reading-question">
+                            <strong>Where do students go for homework club?</strong><br>
+                            <textarea placeholder="Write your answer..."></textarea>
+                        </div>
+                        
+                        <div class="reading-question">
+                            <strong>What time do they go home?</strong><br>
+                            <textarea placeholder="Write your answer..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page">
+            <div class="section">
+                <div class="section-title">Writing</div>
+                
+                <div class="writing-section">
+                    <div class="writing-instructions">
+                        <h4>A. Write about your ideal school. Include these three topics:</h4>
+                        <ul>
+                            <li>subjects you study</li>
+                            <li>places in school</li>
+                            <li>conclusion with your opinion</li>
+                        </ul>
+                    </div>
+                    
+                    <textarea class="writing-textarea" placeholder="Write your composition here..."></textarea>
+                    
+                    <div class="scoring">
+                        <h4>Scoring:</h4>
+                        <div class="scoring-item">
+                            <span>Complete answer</span>
+                            <span>/2.5</span>
+                        </div>
+                        <div class="scoring-item">
+                            <span>Organisation</span>
+                            <span>/2.5</span>
+                        </div>
+                        <div class="scoring-item">
+                            <span>Vocabulary</span>
+                            <span>/5</span>
+                        </div>
+                        <div class="scoring-item">
+                            <span>Grammar</span>
+                            <span>/5</span>
+                        </div>
+                        <div class="scoring-item">
+                            <strong>Total:</strong>
+                            <strong>/15</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <h3>Total: /65</h3>
+            </div>
+        </div>
+
+        <button class="submit-btn" onclick="submitTest()">Submit Test</button>
+
+        <div class="results" id="results">
+            <h2>Test Submitted!</h2>
+            <div class="score" id="score">Your answers have been saved.</div>
+            <p>Thank you for completing the test.</p>
+        </div>
+    </div>
+
+    <script>
+        function submitTest() {
+            // Collect all answers
+            const answers = {};
+            
+            // Vocabulary Section A
+            answers.vocabA = [];
+            for(let i = 1; i <= 10; i++) {
+                const input = document.querySelector(`input[placeholder="${i === 1 ? '¹' : i === 2 ? '²' : i === 3 ? '³' : i === 4 ? '⁴' : i === 5 ? '⁵' : i === 6 ? '⁶' : i === 7 ? '⁷' : i === 8 ? '⁸' : i === 9 ? '⁹' : '¹⁰'}"]`);
+                if(input) answers.vocabA.push(input.value);
+            }
+            
+            // Vocabulary Section B
+            answers.vocabB = [];
+            const vocabInputs = document.querySelectorAll('.word-fill input');
+            vocabInputs.forEach(input => {
+                if(input.value) answers.vocabB.push(input.value);
+            });
+            
+            // Grammar Section A
+            answers.grammarA = [];
+            const grammarAInputs = document.querySelectorAll('.grammar-item input');
+            grammarAInputs.forEach(input => {
+                if(input.value) answers.grammarA.push(input.value);
+            });
+            
+            // Grammar Section B
+            answers.grammarB = [];
+            const grammarBInputs = document.querySelectorAll('.question-answer input');
+            grammarBInputs.forEach(input => {
+                if(input.value) answers.grammarB.push(input.value);
+            });
+            
+            // Reading Section A
+            answers.readingA = [];
+            const readingASelects = document.querySelectorAll('.matching-select');
+            readingASelects.forEach(select => {
+                answers.readingA.push(select.value);
+            });
+            
+            // Reading Section B
+            answers.readingB = [];
+            const readingBTextareas = document.querySelectorAll('.reading-question textarea');
+            readingBTextareas.forEach(textarea => {
+                answers.readingB.push(textarea.value);
+            });
+            
+            // Writing Section
+            answers.writing = document.querySelector('.writing-textarea').value;
+            
+            // Store answers in localStorage
+            localStorage.setItem('englishTestAnswers', JSON.stringify(answers));
+            
+            // Show results
+            document.querySelector('.test-container').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            
+            // Print the test with answers
+            setTimeout(() => {
+                window.print();
+            }, 1000);
+        }
+        
+        // Auto-save functionality
+        setInterval(() => {
+            const inputs = document.querySelectorAll('input, textarea, select');
+            const answers = {};
+            
+            inputs.forEach(input => {
+                if(input.type === 'text' || input.type === 'textarea') {
+                    answers[input.placeholder || input.id] = input.value;
+                } else if(input.type === 'select-one') {
+                    answers[input.placeholder || input.id] = input.value;
+                }
+            });
+            
+            localStorage.setItem('autoSave', JSON.stringify(answers));
+        }, 5000);
+        
+        // Load auto-saved data
+        window.addEventListener('load', () => {
+            const savedData = localStorage.getItem('autoSave');
+            if(savedData) {
+                const answers = JSON.parse(savedData);
+                Object.keys(answers).forEach(key => {
+                    const input = document.querySelector(`input[placeholder="${key}"], textarea[placeholder="${key}"], select[placeholder="${key}"]`);
+                    if(input) {
+                        input.value = answers[key];
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
